@@ -1,0 +1,39 @@
+
+<div class="box-chat__users">
+  <ul class="box-chat__users__list w-100">
+    <ng-container *ngFor="let room of rooms">
+      <ng-container *ngIf="filterRoom(room)">
+        <li class="box-chat__users__item w-100" (click)="connectChat(room)"
+            [ngClass]="room.name === activeRoom?.name && room.type === activeRoom?.type? 'active': ''">
+          <div class="box-chat__users__item__avatar">
+            <ng-container [ngSwitch]="room.type">
+              <img *ngSwitchCase="'people'" src="/assets/images/user.jpg" alt="avatar">
+              <img *ngSwitchCase="'room'" src="/assets/images/group.jpg" alt="avatar">
+            </ng-container>
+          </div>
+          <div class="box-chat__users__item__content w-100">
+            <p class="box-chat__users__item__name">
+              {{room.name || 'Anonymous'}}
+            </p>
+            <div class="d-flex align-items-center justify-content-between gap-0 w-100">
+              <ng-container
+                *ngIf="room.messages && room.messages.length > 0 && room.messages[room.messages.length - 1]">
+                <div class="box-chat__users__item__message"
+                     [innerHTML]="messageConverter.convertMessage(room.messages[room.messages.length - 1])">
+                </div>
+                <p class="box-chat__users__item__time">
+                  {{room.messages[room.messages.length - 1].createAt | date:'shortTime'}}
+                </p>
+              </ng-container>
+              <ng-container *ngIf="!room.messages || room.messages.length <= 0">
+                <p class="box-chat__users__item__message box-chat__users__item__message--greetings">
+                  Let's start a new conversation
+                </p>
+              </ng-container>
+            </div>
+          </div>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+</div>

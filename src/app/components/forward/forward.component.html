@@ -1,0 +1,44 @@
+<div class="forward_list forward__common " [ngClass]="isOpenForward?'show':'hidden'">
+  <div class="forward__common__header">
+    <h5>Forward</h5>
+    <button (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="forward__common__content">
+    <div class="forward__common__form">
+      <div class="forward__common__form__container">
+        <input type="text" class="forward__search-input" placeholder="Search for people and groups"
+               (change)="handleSearchChat()"
+               [(ngModel)]="searching" >
+        <button class="forward__icon" [ngClass]="isOpenedSearch?'show':'hidden'" (click)="changeToggel()"><i class="fa-solid fa-search"></i></button>
+        <button class="forward__icon" [ngClass]="isOpenedSearch?'hidden':'show'" (click)="deleteData()"><i class="fa-solid fa-minus"></i></button>
+      </div>
+    </div>
+    <div class="forward__common__message">
+      <span>Forward message: </span><span [innerHtml]="messageConverter.convertMes(forwardMessage)"></span>
+    </div>
+    <div class="forward__common__list">
+      <ng-container *ngFor="let room of rooms">
+        <ng-container *ngIf="filterRoom(room)">
+        <div class="forward__common__item">
+          <div class="forward__common__item__content">
+            <div class="forward__users__item__avatar">
+              <ng-container [ngSwitch]="room.type">
+                <img *ngSwitchCase="'people'" src="/assets/images/user.jpg" alt="avatar">
+                <img *ngSwitchCase="'room'" src="/assets/images/group.jpg" alt="avatar">
+              </ng-container>
+            </div>
+            <p class="forward__users__item__name">
+              {{room.name || 'Anonymous'}}
+            </p>
+          </div>
+          <button class="forward__common__item__status" (click)="forwardChat(room)">
+            Forward
+          </button>
+        </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div class="forward__overlay" [ngClass]="isOpenForward ? 'show':'hidden'"
+     (click)="close()"></div>

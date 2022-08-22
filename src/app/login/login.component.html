@@ -1,0 +1,91 @@
+<div class="d-flex w-100 h-100">
+  <div class="col-4 h-100">
+    <div class="wrapper">
+      <div class="logo">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/landing-logo.d9ecd4c.png" alt="logo">
+      </div>
+      <div class="title">Hello Everyone, We are Chitchat</div>
+      <div class="sub-title">Welcome to chitchat please login to your account.</div>
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form__input">
+          <label for="name">Username</label>
+          <input id="name" class="mb-2" type="text" placeholder="Write your username..." formControlName="username" required>
+          <ng-container
+            *ngIf="loginForm.controls.username.invalid && (loginForm.controls.username.dirty || loginForm.controls.username.touched)">
+            <ng-container *ngIf="loginForm.controls.username.errors">
+              <ng-container *ngIf="loginForm.controls.username.errors?.['required']">
+                <small class="form-text text-danger fw-bold" style="font-size: 12px">*Please fill in username</small>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="form__input eye-password">
+          <label for="password">Password</label>
+          <input id="password" class="mb-2" type="password" placeholder="Write your username..." formControlName="password" required>
+          <div class="eye" [ngClass]="loginForm.controls.password.value != '' ? 'show': 'hidden'"  (click)="toggleEye(1)">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <ng-container
+            *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+            <ng-container *ngIf="loginForm.controls.password.errors">
+              <ng-container *ngIf="loginForm.controls.password.errors?.['required']">
+                <small class="form-text text-danger fw-bold " style="font-size: 12px;">*Please fill in password</small><br>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="responseLogin">
+            <small class="text-danger form-text fw-bold" style="font-size: 12px">*{{responseLogin}}</small>
+          </ng-container>
+        </div>
+        <div class="form__buttons">
+          <button type="submit" [disabled]="!loginForm.valid">Login</button>
+          <a routerLink="/register">SignUp</a>
+        </div>
+      </form>
+      <div class="connect">
+        <div class="connect__line">
+          <p></p>
+          <p>Or connect with</p>
+          <p></p>
+        </div>
+        <div class="d-flex align-items-center justify-content-center gap-3">
+          <button><i class="fa-brands fa-google"></i></button>
+          <button><i class="fa-brands fa-twitter"></i></button>
+          <button><i class="fa-brands fa-facebook-f"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 h-100">
+    <div class="background">
+      <div class="background__cycle--0"></div>
+      <div class="background__cycle--1"></div>
+      <div class="background__cycle--2"></div>
+      <div class="background__cycle--3"></div>
+      <div class="background__cycle--4"></div>
+      <div class="background__cycle--5"></div>
+      <div class="background__cycle--6"></div>
+      <div class="background__letter">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/1.78e0d49.png" alt="background">
+      </div>
+      <div class="background__girl">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/7.42aa899.png" alt="background">
+      </div>
+      <div class="background__boy">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/6.9890fa8.png" alt="background">
+      </div>
+      <div class="background__heart">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/5.1c5b7ed.png" alt="background">
+      </div>
+      <div class="background__box-1">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/4.e0cf23d.png" alt="background">
+      </div>
+      <div class="background__box-2">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/4.e0cf23d.png" alt="background">
+      </div>
+      <div class="background__cloud-1">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/2.9a70deb.png" alt="background">
+      </div>
+    </div>
+  </div>
+</div>

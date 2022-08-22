@@ -1,0 +1,123 @@
+<div class="new-contact">
+  <button class="new-contact__button" (click)="toggle()">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+  <div class="new-contact__options" [ngClass]="isOpened ? 'show':'hidden'">
+    <button class="new-contact__option" (click)="toggleAddPeople()">
+      <span class="new-contact__option__title">New Chat</span>
+      <div class="new-contact__option__icon">
+        <i class="fa-solid fa-message"></i>
+      </div>
+    </button>
+    <button class="new-contact__option" (click)="toggleAddGroup()">
+      <span class="new-contact__option__title">New Group</span>
+      <div class="new-contact__option__icon">
+        <i class="fa-solid fa-user-group"></i>
+      </div>
+    </button>
+  </div>
+  <div class="new-contact__people new-contact__common" [ngClass]="isOpenedPeople ? 'show':'hidden'">
+    <div class="new-contact__common__header">
+      <h5>Create new chat</h5>
+      <button (click)="close()">
+        <i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="new-contact__common__content">
+      <div class="new-contact__common__form">
+        <div class="new-contact__common__form__container">
+          <input type="text" placeholder="Create new chat" [(ngModel)]="newContact">
+          <button (click)="handleAddPeople()">
+            <i class="fa-solid fa-plus"></i>
+            <p>Add people {{messageNewContact}}</p>
+          </button>
+        </div>
+        <div class="forward__notification_people" [ngClass]="messageNewContact?'show':'hidden'">*{{messageNewContact}}</div>
+      </div>
+      <div class="new-contact__common__list">
+        <ng-container *ngFor="let room of rooms">
+          <div *ngIf="room.type==='people'" class="new-contact__common__item" (click)="handleChangeRoom(room)">
+            <div class="new-contact__common__item__content">
+              <div class="new-contact__common__item__avatar">
+                <img src="assets/images/user.jpg" alt="avatar">
+              </div>
+              <div class="d-flex flex-column gap-0">
+                <p class="new-contact__common__item__name">{{room.name || 'Anonymous'}}</p>
+                <ng-container *ngIf="room.messages && room.messages.length > 0">
+                  <div class="d-flex gap-3 align-items-center">
+                    <p class="new-contact__common__item__message"
+                       [innerHtml]="messageConverter.convertMessage(room.messages[room.messages.length-1])"></p>
+                    <p class="new-contact__common__item__time">{{room.messages[0].createAt | date:'shortTime'}}</p>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!room.messages || room.messages.length <= 0">
+                  <div class="d-flex gap-3 align-items-center">
+                    <p class="new-contact__common__item__message">Let's start a new conversation</p>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="new-contact__common__item__status">
+              <span>Connected</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="new-contact__group new-contact__common" [ngClass]="isOpenedGroup ? 'show':'hidden'">
+    <div class="new-contact__common__header">
+      <h5>join new room</h5>
+      <button (click)="close()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="new-contact__common__content">
+      <div class="new-contact__common__form">
+        <div class="new-contact__common__form__container">
+          <input type="text" placeholder="Create or join new room..." [(ngModel)]="newContact" name="new">
+          <button (click)="handleCreateRoom()">
+            <i class="fa-solid fa-plus"></i>
+            <p>Create room </p>
+          </button>
+          <button (click)="handleJoinRoom()">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <p>Join room</p>
+          </button>
+        </div>
+        <div class="forward__notification_group" [ngClass]="messageNewContact?'show':'hidden'">*{{messageNewContact}}</div>
+      </div>
+      <div class="new-contact__common__list">
+        <ng-container *ngFor="let room of rooms">
+          <div *ngIf="room.type==='room'" class="new-contact__common__item" (click)="handleChangeRoom(room)">
+            <div class="new-contact__common__item__content">
+              <div class="new-contact__common__item__avatar">
+                <img src="assets/images/group.jpg" alt="avatar">
+              </div>
+              <div class="d-flex flex-column gap-0">
+                <p class="new-contact__common__item__name">{{room.name || 'Anonymous'}}</p>
+                <ng-container *ngIf="room.messages && room.messages.length > 0">
+                  <div class="d-flex gap-3 align-items-center">
+                    <p class="new-contact__common__item__message"
+                       [innerHtml]="messageConverter.convertMessage(room.messages[room.messages.length-1])"></p>
+                    <p
+                      class="new-contact__common__item__time">{{room.messages[room.messages.length - 1].createAt | date:'shortTime'}}</p>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="!room.messages || room.messages.length <= 0">
+                  <div class="d-flex gap-3 align-items-center">
+                    <p class="new-contact__common__item__message">Let's start a new conversation</p>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="new-contact__common__item__status">
+              <span>Connected</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="new-contact__overlay" [ngClass]="isOpenedGroup || isOpenedPeople ? 'show':'hidden'"
+       (click)="close()"></div>
+</div>

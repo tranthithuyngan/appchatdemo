@@ -1,0 +1,76 @@
+<div class="d-flex w-100 h-100">
+  <div class="col-4 h-100">
+    <div class="wrapper py-4">
+      <div class="logo">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/landing-logo.d9ecd4c.png" alt="logo">
+      </div>
+      <div class="title">Hello Everyone, We are Chitchat</div>
+      <div class="sub-title">Welcome to chitchat please login to your account.</div>
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form__input">
+          <label for="name">Username</label>
+          <input id="name" type="text" formControlName="username" name="username" placeholder="Write your username..."
+                 required>
+          <p class="notification" id="notification_username"></p>
+        </div>
+        <div class="form__input eye-password">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" name="password"
+                 placeholder="Write your password..." required>
+          <div class="eye" [ngClass]=" registerForm.controls.password.value  ? 'show': 'hidden'"
+               (click)="toggleEye(1)">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <p class="notification" id="notification_password"></p>
+
+        </div>
+        <div class="form__input eye-password">
+          <label for="password">Confirm password</label>
+          <input id="repeat-password" type="password" formControlName="repeatPassword" name="repeatPassword"
+                 placeholder="Write your password again..." required>
+          <div class="eye-password__repeat" [ngClass]="registerForm.controls.repeatPassword.value ? 'show': 'hidden'"
+               (click)="toggleEye(-1)">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <p class="notification" id="notification_repassword"></p>
+        </div>
+        <div class="form__buttons">
+          <button type="submit">SignUp</button>
+          <a routerLink="/login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-8 h-100">
+    <div class="background">
+      <div class="background__cycle--0"></div>
+      <div class="background__cycle--1"></div>
+      <div class="background__cycle--2"></div>
+      <div class="background__cycle--3"></div>
+      <div class="background__cycle--4"></div>
+      <div class="background__cycle--5"></div>
+      <div class="background__cycle--6"></div>
+      <div class="background__letter">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/1.78e0d49.png" alt="background">
+      </div>
+      <div class="background__girl">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/7.42aa899.png" alt="background">
+      </div>
+      <div class="background__boy">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/6.9890fa8.png" alt="background">
+      </div>
+      <div class="background__heart">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/5.1c5b7ed.png" alt="background">
+      </div>
+      <div class="background__box-1">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/4.e0cf23d.png" alt="background">
+      </div>
+      <div class="background__box-2">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/4.e0cf23d.png" alt="background">
+      </div>
+      <div class="background__cloud-1">
+        <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/2.9a70deb.png" alt="background">
+      </div>
+    </div>
+  </div>
+</div>

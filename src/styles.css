@@ -1,0 +1,222 @@
+@import '~@ctrl/ngx-emoji-mart/picker.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #495057;
+  font-family: 'Rubik', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/*--------------------------------------css dark mode---------------------------------------------------------------*/
+body:not(.dark-mode-preloading) {
+  transition: all 0.3s revert;
+}
+
+body.dark-mode {
+  background-color: #191b1f;
+  color: #fff;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #191b1f;
+}
+.dark-mode .chat-conversation__message-container__name{
+  color: #fff!important;
+}
+
+.dark-mode .chat-conversation__header {
+  background-color: #191b1f !important;
+  border: unset !important;
+  box-shadow: 0 -55px 0 0 #25262c !important;
+}
+
+.dark-mode .sidebar {
+  background-color: #191b1f !important;
+
+}
+
+.dark-mode .box-chat__sidebar h3 {
+  color: #fff;
+}
+
+
+.dark-mode .box-chat__sidebar p:not(.chat-conversation__message-container__message) {
+  color: #fff;
+}
+
+/*.light-mode .box-chat__sidebar h3,p:not(app-box-chat .chat-conversation__message-container__message){*/
+/*  color: black!important;*/
+/*}*/
+.dark-mode .box-chat__content__form__input input {
+  background-color: #191b1f !important;
+
+}
+.dark-mode .new-contact__common__content,.dark-mode .forward__common__content{
+  background-color: #25262c !important;
+
+}
+.dark-mode .new-contact__common__header i,.dark-mode .forward__common__header i{
+  background-color: #191b1f !important;
+  color: #fff!important;
+
+}
+.dark-mode .new-contact__people,.dark-mode .forward_list {
+  border: #191b1f solid 1px!important;
+}
+.dark-mode .forward__users__item__name{
+  color: #fff!important;
+
+}
+
+
+.dark-mode .new-contact__common__header,.dark-mode .forward__common__header{
+  background-color: #191b1f !important;
+
+}
+.dark-mode .box-chat__content__form__input input {
+  background-color: #191b1f !important;
+
+}
+
+.dark-mode .chat-conversation {
+  background-color: #25262c !important;
+
+}
+
+.dark-mode .box-chat__sidebar, .dark-mode .sidebar, .dark-mode .sidebar__logo {
+  border-color: #667b89 !important;
+}
+
+.dark-mode .chat-conversation__message-container {
+  /*background-color:blue!important;*/
+}
+
+.dark-mode .box-chat__content__form emoji-mart {
+  background-color: black !important;
+  color: black !important;
+}
+
+.dark-mode .box-chat__content__form__input input, .dark-mode .chat-conversation__header__info__name {
+  color: #fff !important;
+}
+
+.dark-mode app-login div {
+  background-color: #fff !important;
+}
+
+.dark-mode app-register div {
+  background-color: #fff !important;
+}
+
+.dark-mode .box-chat__sidebar__header__search input {
+  background-color: #191b1f !important;
+  color: #fff !important;
+  padding: 5px;
+}
+
+.dark-mode .new-contact__options {
+  background-color: #191b1f !important;
+}
+
+.dark-mode .new-contact__options button {
+  background-color: #191b1f !important;
+  color: #fff !important;
+}
+
+.dark-mode .new-contact__options button span {
+  /*background-color: #191b1f!important;*/
+  color: #fff !important;
+}
+
+.dark-mode .chat-conversation__message-container .right {
+  background-color: #191b1f !important;
+  color: #fff !important;
+}
+
+.dark-mode .chat-conversation__message-container .left {
+  background-color: #1c9dea !important;
+  color: #fff !important;
+}
+
+.dark-mode .button-light {
+  background-color: #25262c !important;
+  color: #fff !important;
+}
+
+.dark-mode .box-chat__sidebar__header__title {
+  color: #fff !important;
+}
+
+
+/*Emojis*/
+emoji-mart {
+  position: absolute;
+  bottom: 100px;
+  background-color: #fff !important;
+}
+
+.emoji-container {
+  position: absolute;
+  bottom: 86px;
+  z-index: 500;
+}
+
+.emoji-mart {
+  box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
+}
+
+.emoji-mart-category-label span {
+  transform: translateY(-1px);
+}
+
+.emoji-mart-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.emoji-mart-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.emoji-mart-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.emoji-mart-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.box-chat__users__item__message img {
+  height: 50px !important;
+  border-radius: 8px;
+}
+
+.overlay-emoji {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255,1.0);
+  transition: transform .3s ease-out, opacity .15s linear;
+}
+.overlay-emoji.show {
+  visibility: visible;
+  opacity: .2;
+}
+
+.overlay-emoji.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+

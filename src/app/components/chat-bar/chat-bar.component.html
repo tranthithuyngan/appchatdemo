@@ -1,0 +1,11 @@
+<div class="box-chat__content__form">
+  <form class="d-flex align-items-end gap-3" (submit)="handleSendChat()">
+    
+    <div class="box-chat__content__form__input">
+      <input placeholder="Aa" type="text" style="color:#d45277" name="message" [(ngModel)]="message">
+    </div>
+    <button class="custom-button" type="submit">
+      <i class="fa-solid fa-paper-plane" style="font-size:20px;color:#d45277"></i>
+    </button>
+  </form>
+</div>

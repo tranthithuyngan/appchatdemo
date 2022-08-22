@@ -1,0 +1,352 @@
+.wrapper {
+  padding: 50px;
+  border-right: 1px solid #eff1f2;
+  z-index: 10;
+  position: relative;
+}
+
+.logo {
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.title {
+  color: #223645;
+  font-weight: 700;
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+
+.sub-title {
+  margin-bottom: 35px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #647589;
+}
+
+.form__input {
+  margin-bottom: 30px;
+}
+
+.form__input label {
+  display: block;
+  font-size: 17px;
+  color: #223645;
+  font-weight: 600;
+  padding-top: 0;
+  padding-bottom: 15px;
+  line-height: 1;
+}
+
+
+.form__input input {
+  padding: 13px 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  outline: none !important;
+  height: auto;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #828282;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form__buttons {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.form__buttons button, .form__buttons a {
+  border: none !important;
+  outline: none !important;
+  color: #fff;
+  background-color: #1c9dea;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 12px 40px;
+  border-radius: 8px;
+  line-height: 1.5;
+  transition: all .3s ease;
+  text-decoration: none;
+  text-align: center;
+  flex: 1;
+}
+
+.form__buttons button {
+  color: #fff;
+  background-color: #1c9dea;
+
+}
+
+.form__buttons a {
+  color: #fff;
+  background-color: #223645;
+}
+
+.connect {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.connect__line {
+  text-transform: capitalize;
+  font-size: 12px;
+  color: #223645;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: max-content;
+}
+
+.connect__line p:first-child,
+.connect__line p:last-child {
+  flex: 1;
+  height: 1.5px;
+  background: #efefef;
+}
+
+.connect button {
+  border-radius: 50%;
+  border: none !important;
+  outline: none !important;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  cursor: not-allowed;
+}
+
+
+.connect button:nth-child(1) {
+  background-color: #ff4e2b;
+}
+
+.connect button:nth-child(2) {
+  background-color: #1c9dea;
+}
+
+.connect button:nth-child(3) {
+  background-color: #2c67ce;
+}
+
+
+.background {
+  overflow: hidden;
+  background: #eff7fe;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.background img {
+  width: 100%;
+  height: auto;
+}
+
+.background__letter {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 450px;
+}
+
+.background__girl {
+  position: absolute;
+  top: 27%;
+  right: 27%;
+  width: 170px;
+}
+
+.background__boy {
+  position: absolute;
+  width: 110px;
+  left: 35%;
+  top: 48%;
+}
+
+.background__cycle--0 {
+  background-image: linear-gradient(#cde7fa, #f1f8fe, #f1f8fe);
+  padding: 1px;
+  width: calc(-16px + 36.25vw);
+  height: calc(-16px + 36.25vw);
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.background__cycle--1 {
+  background-image: linear-gradient(90deg, #cde7fa, #f1f8fe, #f1f8fe, #f1f8fe);
+  padding: 1px;
+  width: calc(62px + 4vw);
+  height: calc(62px + 4vw);
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  top: 1%;
+  right: 9%;
+  position: absolute;
+}
+
+.background__cycle--2 {
+  background-image: linear-gradient(270deg, #f1f8fe, #f1f8fe, #cde7fa);
+  padding: 1px;
+  width: calc(56px + 10.625vw);
+  height: calc(56px + 10.625vw);
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  bottom: 18%;
+  right: 0;
+  position: absolute;
+}
+
+.background__cycle--3 {
+  background-image: linear-gradient(#f1f8fe, #f1f8fe, #cde7fa);
+  padding: 1px;
+  height: calc(40px + 3vw);
+  width: calc(40px + 3vw);
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  position: absolute;
+  top: 2%;
+  left: 20%;
+}
+
+.background__cycle--4 {
+  background-image: linear-gradient(90deg, #cde7fa, #f1f8fe, #f1f8fe);
+  top: 45%;
+  left: 6%;
+  padding: 1px;
+  height: calc(40px + 3.125vw);
+  width: calc(40px + 3.125vw);
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  position: absolute;
+}
+
+.background__cycle--5 {
+  background-image: linear-gradient(#cde7fa, #f1f8fe, #f1f8fe);
+  padding: 1px;
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  position: absolute;
+  width: calc(40px + 3.125vw);
+  height: calc(40px + 3.125vw);
+  bottom: 0;
+  left: 13%;
+}
+
+.background__cycle--6 {
+  width: calc(24px + 5vw);
+  height: calc(24px + 5vw);
+  bottom: 2%;
+  right: 22%;
+  background-image: linear-gradient(#cde7fa, #f1f8fe, #f1f8fe);
+  padding: 1px;
+  border-color: transparent;
+  border-radius: 50%;
+  border-width: 1px;
+  position: absolute;
+}
+
+.background__heart {
+  top: 15%;
+  right: 35%;
+  position: absolute;
+  width: 60px;
+  animation-name: heartbeat;
+  animation-direction: alternate;
+  animation-duration: 4s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.background__box-1 {
+  top: 60%;
+  left: 25%;
+  position: absolute;
+  width: 55px;
+}
+
+.background__box-2 {
+  top: 15%;
+  right: 27%;
+  position: absolute;
+  width: 55px;
+}
+
+.background__cloud-1 {
+  position: absolute;
+  top: 15%;
+  left: -100px;
+  height: 300px;
+  -webkit-animation: cloud-1 10s linear infinite;
+  animation: cloud-1 10s linear infinite;
+}
+
+@keyframes cloud-1 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/*eye password*/
+.eye-password {
+  position: relative;
+}
+.eye,.eye-password__repeat {
+  position: absolute;
+  top: 35px;
+  right: 0px;
+  padding: 10px;
+  opacity: 0;
+}
+.eye.show, .eye-password__repeat.show {
+  opacity: 1;
+  transition: all .7s ease;
+}
+.eye.hidden, eye-password__repeat.hidden {
+  opacity: 0;
+  transition: all .5s ease;
+}

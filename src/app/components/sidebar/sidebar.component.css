@@ -1,0 +1,82 @@
+
+#theme {
+  display: none;
+}
+
+
+.dark-mode__button {
+  width: 42px;
+  height: 42px;
+  border: none !important;
+  outline: none !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #223645 !important;
+  background-color: #eff1f2 !important;
+  transition: all .3s ease;
+}
+
+.dark-mode__button__icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.dark-mode__button:hover {
+  background-color: #d3d8db !important;
+}
+
+.dark-mode__button__name {
+  position: absolute;
+  min-width: max-content;
+  left: 100%;
+  top: 40%;
+  padding: 5px 15px;
+  border-radius: 0 50px 50px 50px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: white;
+  background: #223645;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-left: 5px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  transition: all .3s ease;
+}
+
+.dark-mode__button:hover .dark-mode__button__name {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dark-mode__button .sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease;
+}
+
+.dark-mode__button .moon {
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease;
+}
+
+#theme:checked + .dark-mode__button .sun {
+  top: 150%;
+}
+
+#theme:checked + .dark-mode__button .moon {
+  top: 50%;
+}

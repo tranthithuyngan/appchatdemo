@@ -1,0 +1,39 @@
+<ng-container *ngIf="!user || (user && !rooms)">
+  
+</ng-container>
+<ng-container *ngIf="user">
+  <div class="d-flex h-100 gap-0">
+    <app-sidebar [user]="user" (logout)="handleLogout()" #sidebar></app-sidebar>
+    <div class="box-chat">
+      <div class="box-chat__sidebar position-relative">
+        <div class="box-chat__sidebar__header">
+          <div class="box-chat__sidebar__header__title">
+            <h3>Chats</h3>
+          </div>
+          
+        </div>
+        <input type="text" class="form-control " style="margin-bottom:20px;" placeholder="Search...">
+        <app-group-chat [rooms]="rooms" [activeRoom]="activeRoom" [searching]="searching"
+                        (changeRoom)="changeRoom($event)" class="d-flex flex-column overflow-hidden"></app-group-chat>
+        <app-new-contact [rooms]="rooms"
+                         [activeRoom]="activeRoom"
+                         (changeRoom)="changeRoom($event)"
+                         (addPeople)="addPeople($event)"
+                         (joinRoom)="joinRoom($event)"
+                         (createRoom)="createRoom($event)"
+                         [messageNewContact]="messageNewContact">
+        </app-new-contact>
+      </div>
+      <div class="box-chat__content position-relative">
+        <app-box-chat class="container__chat-conversation" (forwardMessage)="handOpenedForward($event)"
+                      [isOpenForward]="isOpenForward" [activeRoom]="activeRoom" [user]="user"
+                      (loadHistory)="loadHistory()" [dataRetrieved]="dataRetrieved"></app-box-chat>
+        <app-chat-bar (sendChat)="sendChat($event)"></app-chat-bar>
+      </div>
+    </div>
+  </div>
+  <app-forward [rooms]="rooms" [isOpenForward]="isOpenForward" (closeForward)="closeForward()"
+               [content]="forwardMessage" (sendChat)="handleForwardChat($event)"
+               (searchChat)="searchChatForward($event)"></app-forward>
+</ng-container>
+

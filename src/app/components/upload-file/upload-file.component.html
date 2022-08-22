@@ -1,0 +1,10 @@
+<div class="box-chat__content__form__box-images__item">
+  <img id="image" src="{{image.url}}" alt="">
+  <button type="button" class="box-chat__content__form__box-images__item-remove"
+          (click)="handleRemoveImage(image)">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <div *ngIf="percentage | async as pct" class="box-chat__content__form__box-images__item__percentage">
+    {{pct | number}}%
+  </div>
+</div>

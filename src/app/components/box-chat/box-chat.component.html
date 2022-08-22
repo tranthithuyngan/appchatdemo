@@ -1,0 +1,66 @@
+<div class="chat-conversation" #boxChat (scroll)="onScroll($event)">
+  <ng-container *ngIf="activeRoom">
+    <div class="chat-conversation__header">
+      <div class="d-flex">
+        <div class="chat-conversation__avatar" style="color:#d45277;width: 60px;height: 60px;">
+          <ng-container [ngSwitch]="activeRoom.type">
+            <img *ngSwitchCase="'people'" src="/assets/images/user.jpg" alt="avatar">
+            <img *ngSwitchCase="'room'" src="/assets/images/group.jpg" alt="avatar">
+          </ng-container>
+        </div>
+        <div class="chat-conversation__header__info" style="color:#d45277">
+          <h5 class="chat-conversation__header__info__name">{{ activeRoom.name || 'Anonymous'}}</h5>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="chat-conversation__content"
+       [ngClass]="activeRoom && activeRoom.messages && activeRoom.messages.length ? 'show': 'hidden'">
+    <ng-container *ngFor="let message of activeRoom?.messages; let i = index">
+      <ng-container *ngIf="message && message.mes && activeRoom && activeRoom.messages">
+        <div class="chat-conversation__content__divide-time" *ngIf="message.createAt && divideDate(i)">
+          {{message.createAt | date:'fullDate'}}
+        </div>
+        <div class="d-flex gap-3 pb-4 align-items-end" id="{{message.id}}"
+             [ngClass]="message.name === user?.name ? 'flex-row-reverse': ''">
+          <div class="chat-conversation__avatar">
+            <img src="/assets/images/user.jpg" alt="avatar">
+          </div>
+          <div class="d-flex flex-column gap-0 chat-color"
+               [ngClass]="message.name === user?.name ? 'align-items-end':''">
+            <div class="chat-conversation__message-container"
+                 [ngClass]="message.name === user?.name ? 'flex-row-reverse':''">
+              <ng-container *ngIf="messageConverter.isHtml(message)">
+                <div class="chat-conversation__message-container__message p-0"
+                     [ngClass]="message.name === user?.name ? 'right':'left'" [innerHTML]="message.mes">
+                </div>
+              </ng-container>
+              <ng-container *ngIf="!messageConverter.isHtml(message)">
+                <div class="chat-conversation__message-container__message"
+                     [ngClass]="message.name === user?.name ? 'right':'left'" [innerHTML]="message.mes">
+                </div>
+              </ng-container>
+              <button class="chat-conversation__message-forward"
+                      [ngClass]="message.name === user?.name ? 'right':'left'"
+                      (click)="handleForwardMessage(message.mes)">
+                <i class="fa-solid fa-share-nodes"></i>
+                <p>Forward</p>
+              </button>
+            </div>
+            <div class="d-flex align-items-center gap-3"
+                 [ngClass]="message.name === user?.name ? 'flex-row-reverse': ''">
+              <p class="chat-conversation__message-container__name">{{message.name || 'Anonymous'}}</p>
+              <p class="chat-conversation__message-container__time">{{message.createAt | date: 'shortTime'}}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="chat-conversation__background"
+       [ngClass]="activeRoom && activeRoom.messages && activeRoom.messages.length ? 'hidden': 'show'">
+    <img src="https://vue.pixelstrap.com/chitchat/_nuxt/img/chat.3ae7d20.png" alt="No message">
+    <p class="chat-conversation__background__title">Select a chat to read messages</p>
+  </div>
+</div>
+

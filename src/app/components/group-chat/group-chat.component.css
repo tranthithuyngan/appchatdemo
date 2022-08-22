@@ -1,0 +1,147 @@
+
+.box-chat__group-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 40px 24px;
+}
+
+.box-chat__group-button button {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 30px;
+  min-height: 30px;
+  border-radius: 8px;
+  min-width: 150px;
+  border: none !important;
+  outline: none !important;
+  background-color: #eff1f2;
+  text-align: center;
+  transition: all 0.3s ease;
+  justify-content: center;
+}
+
+.box-chat__group-button button.active {
+  background-color: rgba(28, 157, 234, 0.15);
+  color: #d45277;
+}
+
+/*================================================================================*/
+.box-chat__users {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.box-chat__users__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.box-chat__users__item {
+  display: flex;
+  background: transparent;
+  gap: 16px;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: all .2s ease-out;
+}
+
+
+.box-chat__users__item__avatar {
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  min-height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+
+
+}
+
+.box-chat__users__item__avatar img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.box-chat__users__item__content {
+  padding: 0;
+  flex: 1;
+
+}
+
+.box-chat__users__item__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 600;
+  color: #223645;
+  margin: 5px 0 0;
+}
+
+.box-chat__users__item__message {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  color: #647589;
+  margin: 0;
+  letter-spacing: 0.15px;
+  flex: 1;
+  max-width: 150px;
+  position: relative;
+}
+
+.box-chat__users__item__message img {
+  width: 50px !important;
+
+
+}
+
+.box-chat__users__item__message--greetings {
+  font-weight: 500 !important;
+  width: max-content !important;
+  max-width: 100% !important;
+}
+
+.box-chat__users__item__time {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  color: #647589;
+  letter-spacing: 0.15px;
+}
+
+
+.box-chat__users__item.active {
+  background-color: rgba(28, 157, 234, 0.15);
+  border-left: 4px solid #d45277;
+}
+
+.box-chat__users__item.active .box-chat__users__item__message {
+  font-weight: 500;
+  color: #d45277;
+}
+
+/*================================================================================*/
+
+
+.box-chat__users::-webkit-scrollbar {
+  width: 10px;
+}
+
+.box-chat__users::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.box-chat__users::-webkit-scrollbar-thumb {
+  background: #d45277;
+}
+
+.box-chat__users::-webkit-scrollbar-thumb:hover {
+  background: #d45277;
+}

@@ -1,0 +1,8 @@
+<button class="custom-button button-light" (click)="toggleSearch()">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+<div class="box-chat__sidebar__header__search" [ngClass]="isOpenedSearch ? 'show':'hidden'">
+  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+  <input type="text" placeholder="Search conversation..." (change)="handleSearchChat()" [(ngModel)]="searching" name="searching">
+  <button (click)="toggleSearch()"><i class="fa-solid fa-xmark"></i></button>
+</div>
